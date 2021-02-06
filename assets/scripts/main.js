@@ -1,6 +1,6 @@
 const audio = document.getElementById("horn-sound");
 const btn = document.getElementById("honk-btn");
-const img = document.getElementById("sound-image");
+const hornImg = document.getElementById("sound-image");
 const airHorn = {
     audio: "assets/media/audio/air-horn.mp3",
     img: "assets/media/images/air-horn.svg",
@@ -32,13 +32,13 @@ carHorn.radio.addEventListener("change", setHorn);
 partyHorn.radio.addEventListener("change", setHorn);
 function setHorn() {
     if (airHorn.radio.checked) {
-        img.src = airHorn.img;
+        hornImg.src = airHorn.img;
         audio.src = airHorn.audio;
     } else if (carHorn.radio.checked) {
-        img.src = carHorn.img;
+        hornImg.src = carHorn.img;
         audio.src = carHorn.audio;
     } else if (partyHorn.radio.checked) {
-        img.src = partyHorn.img;
+        hornImg.src = partyHorn.img;
         audio.src = partyHorn.audio;
     }
 }
