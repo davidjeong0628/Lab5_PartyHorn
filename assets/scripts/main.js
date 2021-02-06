@@ -1,36 +1,44 @@
 const audio = document.getElementById("horn-sound");
 const btn = document.getElementById("honk-btn");
 const img = document.getElementById("sound-image");
-
-const audioAirHorn = "assets/media/audio/air-horn.mp3";
-const radioAirHorn = document.getElementById("radio-air-horn");
-const imgAirHorn = "assets/media/images/air-horn.svg";
-
-const radioCarHorn = document.getElementById("radio-car-horn");
-
-const radioPartyHorn = document.getElementById("radio-party-horn");
+const airHorn = {
+    audio: "assets/media/audio/air-horn.mp3",
+    img: "assets/media/images/air-horn.svg",
+    radio: document.getElementById("radio-air-horn")
+};
+const carHorn = {
+    audio: "assets/media/audio/car-horn.mp3",
+    img: "assets/media/images/car.svg",
+    radio: document.getElementById("radio-car-horn")
+};
+const partyHorn = {
+    audio: "assets/media/audio/party-horn.mp3",
+    img: "assets/media/images/party-horn.svg",
+    radio: document.getElementById("radio-party-horn")
+};
 
 
 btn.addEventListener("click", (event) => {
     playAudio(event);
 });
-
 function playAudio(event) {
     console.log("play audio");
     event.preventDefault();
     audio.play(); 
 }
 
-radioAirHorn.addEventListener("change", setHorn);
-radioCarHorn.addEventListener("change", setHorn);
-radioPartyHorn.addEventListener("change", setHorn);
-
+airHorn.radio.addEventListener("change", setHorn);
+carHorn.radio.addEventListener("change", setHorn);
+partyHorn.radio.addEventListener("change", setHorn);
 function setHorn() {
-    if (radioAirHorn.checked) {
-
-    } else if (radioCarHorn.checked) {
-
-    } else if (radioPartyHorn.checked) {
-
+    if (airHorn.radio.checked) {
+        img.src = airHorn.img;
+        audio.src = airHorn.audio;
+    } else if (carHorn.radio.checked) {
+        img.src = carHorn.img;
+        audio.src = carHorn.audio;
+    } else if (partyHorn.radio.checked) {
+        img.src = partyHorn.img;
+        audio.src = partyHorn.audio;
     }
 }
